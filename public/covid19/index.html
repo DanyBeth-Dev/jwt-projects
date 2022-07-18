@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Covid19 API</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Covid-19 API</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" id="logIn" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar
+            Sesión</a>
+          <a class="nav-link" id="logOut" href="#" style="display:none">Cerrar Sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <h1 class="text-center">Covid-19 API</h1>
+  <h2 class="text-center">Situación Mundial</h2>
+
+  <!--Chart Casos Totales-->
+  <div class="container" id="chartMundial" style="display:none">
+    <canvas id="Chart1" width="400" height="400" style="display: block"></canvas>
+  </div>
+
+  <!--Chart de Casos en Chile-->
+  <div class="container" id="chartChile" style="display:none">
+    <canvas id="Chart3" width="400" height="400" style="display:none"></canvas>
+  </div>
+
+  <!--Tabla-->
+  <div class="container" id="informationalTable" style="display:none">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Países</th>
+          <th scope="col">Confirmados</th>
+          <th scope="col">Muertes</th>
+          <th scope="col">Recuperados</th>
+          <th scope="col">Activos</th>
+          <th scope="col" id="info">Más info</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <pre id="pre"></pre>
+
+  <!-- Modal Más Información-->
+  <div class="modal fade" id="modalMasInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <canvas id="Chart2" width="400" height="400"></canvas>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Formulario-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-6">
+            <form id="js-form">
+              <div class="form-group">
+                <label for="js-input-email">Email address</label>
+                <input type="email" class="form-control" id="js-input-email" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="js-input-password">Password</label>
+                <input type="password" class="form-control" id="js-input-password">
+              </div>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Enviar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--jQuery v3.6-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!--Bootstrap v5.2-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <!--Chart.js-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!--Mi JavaScript-->
+  <script src="assets/scripts.js"></script>
+</body>
+
+</html>
